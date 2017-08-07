@@ -77,17 +77,17 @@ describe('<ListItem />', () => {
     assert.strictEqual(wrapper.find(`.${testClass}`).length, 1, 'should have a div with the test class');
   });
 
-  it('should trigger onTouchTap handler when appropriate.', () => {
-    const onTouchTap = spy();
+  it('should trigger onClick handler when appropriate.', () => {
+    const onClick = spy();
     const wrapper = shallowWithContext(
       <ListItem
-        onTouchTap={onTouchTap}
+        onClick={onClick}
       />
     );
     const primaryTextButton = wrapper.find(EnhancedButton);
 
     primaryTextButton.simulate('touchTap', {stopPropagation: () => {}});
-    assert.strictEqual(onTouchTap.callCount, 1);
+    assert.strictEqual(onClick.callCount, 1);
   });
 
   describe('prop: primaryTogglesNestedList', () => {

@@ -125,7 +125,7 @@ class FloatingActionButton extends Component {
      *
      * @param {object} event TouchTap event targeting the button.
      */
-    onTouchTap: PropTypes.func,
+    onClick: PropTypes.func,
     /**
      * If true, the button will use the secondary button colors.
      */

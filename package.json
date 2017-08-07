@@ -1,6 +1,5 @@
 {
-  "name": "material-ui-build",
-  "private": true,
+  "name": "@fcl/material-ui",
   "author": "Material-UI Team",
   "version": "0.18.7",
   "description": "React Components that Implement Google's Material Design.",
@@ -18,6 +17,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/callemall/material-ui/issues"
+  },
+  "publishConfig": {
+    "registry": "https://nexus.aws.fclweb.net/repository/drupal/"
   },
   "homepage": "http://material-ui.com/",
   "scripts": {
@@ -39,7 +41,8 @@
     "test:integration:watch": "cross-env NODE_ENV=test babel-node test/watch.js integration",
     "test:unit": "cross-env NODE_ENV=test babel-node test/index.js unit",
     "test:unit:watch": "cross-env NODE_ENV=test babel-node test/watch.js unit",
-    "postpublish": "npm run build && cd build && npm publish"
+    "testpostpublish": "npm run build && cd build && npm publish",
+    "deploy": "fcl-js-deploy"
   },
   "peerDependencies": {
     "react": "^15.4.0",
@@ -60,6 +63,7 @@
     "warning": "^3.0.0"
   },
   "devDependencies": {
+    "@fcl/pipeline": "^1.0.53",
     "app-module-path": "^2.2.0",
     "babel-cli": "^6.24.1",
     "babel-core": "^6.24.1",
@@ -105,8 +109,8 @@
     "phantomjs-prebuilt": "^2.1.14",
     "react": "^15.5.0",
     "react-dom": "^15.5.0",
-    "react-test-renderer": "^15.5.0",
     "react-tap-event-plugin": "^2.0.0",
+    "react-test-renderer": "^15.5.0",
     "recursive-readdir-sync": "^1.0.6",
     "rimraf": "^2.6.1",
     "sinon": "^2.1.0",

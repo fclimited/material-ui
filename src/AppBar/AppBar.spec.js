@@ -83,10 +83,10 @@ describe('<AppBar />', () => {
       );
     });
 
-    it('should triggers the onTouchTap', () => {
+    it('should triggers the onClick', () => {
       const handleTouchTap = spy();
       const wrapper = shallowWithContext(
-        <AppBar iconElementLeft={<IconButton onTouchTap={handleTouchTap}><div /></IconButton>} />
+        <AppBar iconElementLeft={<IconButton onClick={handleTouchTap}><div /></IconButton>} />
       );
       wrapper.find(IconButton).simulate('touchTap');
       assert.strictEqual(handleTouchTap.callCount, 1);
@@ -116,24 +116,24 @@ describe('<AppBar />', () => {
     });
   });
 
-  describe('onLeftIconButtonTouchTap', () => {
-    it('should trigger the onTouchTap', () => {
-      const onLeftIconButtonTouchTap = spy();
+  describe('onLeftIconButtonClick', () => {
+    it('should trigger the onClick', () => {
+      const onLeftIconButtonClick = spy();
       const wrapper = shallowWithContext(
-        <AppBar onLeftIconButtonTouchTap={onLeftIconButtonTouchTap} />
+        <AppBar onLeftIconButtonClick={onLeftIconButtonClick} />
       );
 
       wrapper.find(IconButton).simulate('touchTap');
-      assert.strictEqual(onLeftIconButtonTouchTap.callCount, 1,
-        'should have called onLeftIconButtonTouchTap callback function');
+      assert.strictEqual(onLeftIconButtonClick.callCount, 1,
+        'should have called onLeftIconButtonClick callback function');
     });
 
-    it('should forward the onTouchTap to onLeftIconButtonTouchTap', () => {
+    it('should forward the onClick to onLeftIconButtonClick', () => {
       const handleTouchTap = spy();
       const wrapper = shallowWithContext(
         <AppBar
           iconElementLeft={<IconButton><div /></IconButton>}
-          onLeftIconButtonTouchTap={handleTouchTap}
+          onLeftIconButtonClick={handleTouchTap}
         />
       );
       wrapper.find(IconButton).simulate('touchTap');
@@ -141,24 +141,24 @@ describe('<AppBar />', () => {
     });
   });
 
-  describe('onRightIconButtonTouchTap', () => {
-    it('should trigger the onTouchTap', () => {
-      const handleRightIconButtonTouchTap = spy();
+  describe('onRightIconButtonClick', () => {
+    it('should trigger the onClick', () => {
+      const handleRightIconButtonClick = spy();
       const wrapper = shallowWithContext(
-        <AppBar onRightIconButtonTouchTap={handleRightIconButtonTouchTap} iconClassNameRight="foo" />
+        <AppBar onRightIconButtonClick={handleRightIconButtonClick} iconClassNameRight="foo" />
       );
 
       wrapper.find(IconButton).at(1).simulate('touchTap');
-      assert.strictEqual(handleRightIconButtonTouchTap.callCount, 1,
-        'should have called onRightIconButtonTouchTap callback function');
+      assert.strictEqual(handleRightIconButtonClick.callCount, 1,
+        'should have called onRightIconButtonClick callback function');
     });
 
-    it('should forward the onTouchTap to onRightIconButtonTouchTap', () => {
+    it('should forward the onClick to onRightIconButtonClick', () => {
       const handleTouchTap = spy();
       const wrapper = shallowWithContext(
         <AppBar
           iconElementRight={<IconButton><div /></IconButton>}
-          onRightIconButtonTouchTap={handleTouchTap}
+          onRightIconButtonClick={handleTouchTap}
         />
       );
       wrapper.find(IconButton).at(1).simulate('touchTap');

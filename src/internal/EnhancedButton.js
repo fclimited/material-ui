@@ -57,7 +57,6 @@ class EnhancedButton extends Component {
     onKeyDown: PropTypes.func,
     onKeyUp: PropTypes.func,
     onKeyboardFocus: PropTypes.func,
-    onTouchTap: PropTypes.func,
     style: PropTypes.object,
     tabIndex: PropTypes.number,
     touchRippleColor: PropTypes.string,
@@ -73,7 +72,6 @@ class EnhancedButton extends Component {
     onKeyDown: () => {},
     onKeyUp: () => {},
     onKeyboardFocus: () => {},
-    onTouchTap: () => {},
     tabIndex: 0,
     type: 'button',
   };
@@ -246,7 +244,7 @@ class EnhancedButton extends Component {
     if (!this.props.disabled) {
       tabPressed = false;
       this.removeKeyboardFocus(event);
-      this.props.onTouchTap(event);
+      this.props.onClick(event);
     }
   };
 
@@ -271,7 +269,6 @@ class EnhancedButton extends Component {
       onKeyUp, // eslint-disable-line no-unused-vars
       onKeyDown, // eslint-disable-line no-unused-vars
       onKeyboardFocus, // eslint-disable-line no-unused-vars
-      onTouchTap, // eslint-disable-line no-unused-vars
       style,
       tabIndex,
       type,
@@ -329,7 +326,7 @@ class EnhancedButton extends Component {
       onFocus: this.handleFocus,
       onKeyUp: this.handleKeyUp,
       onKeyDown: this.handleKeyDown,
-      onTouchTap: this.handleTouchTap,
+      onClick: this.handleTouchTap,
       tabIndex: disabled || disableKeyboardFocus ? -1 : tabIndex,
     };
 

@@ -70,7 +70,7 @@ export const SnackbarBody = (props, context) => {
     contentStyle,
     message,
     open, // eslint-disable-line no-unused-vars
-    onActionTouchTap,
+    onActionClick,
     style,
     ...other
   } = props;
@@ -82,7 +82,7 @@ export const SnackbarBody = (props, context) => {
     <FlatButton
       style={styles.action}
       label={action}
-      onTouchTap={onActionTouchTap}
+      onClick={onActionClick}
     />
   );
 
@@ -118,7 +118,7 @@ SnackbarBody.propTypes = {
    *
    * @param {object} event Action button event.
    */
-  onActionTouchTap: PropTypes.func,
+  onActionClick: PropTypes.func,
   /**
    * @ignore
    * Controls whether the `Snackbar` is opened or not.
